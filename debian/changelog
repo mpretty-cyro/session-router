@@ -1,3 +1,9 @@
+session-router (1.1.0~rc2-1~deb14+1) forky; urgency=medium
+
+  * Rebuild against current forky libraries
+
+ -- Jason Rhinelander <jason@session.foundation>  Tue, 13 Oct 2026 22:37:20 -0300
+
 session-router (1.1.0~rc2-1~deb14) forky; urgency=medium
 
   * require latest libquic
