@@ -1,3 +1,28 @@
+session-router (1.1.0~rc3-1~ubuntu2604) resolute; urgency=medium
+
+  * Count a UDP tunnel mapping only once its socket exists
+  * Rework the loopback end of a tunnelled TCP connection
+  * bump libquic to stable 1.12.0 commit
+  * Give the TCP tunnel its own file and an accepting side
+  * Advertise tunnelled TCP support in the client contact
+  * Map local TCP ports to remote ports in SessionEndpoint
+  * Add establish_tcp to the embedded API
+  * Exercise the TCP tunnel in the jank test
+  * Quieten quic logging for clients, and layer level settings
+  * Document tunnelled TCP as built
+  * Stop encrypting the tunnel's QUIC connection twice
+  * Exercise early connects and multiple ports in the jank test
+  * Force all submodule dependencies in the libc++ CI builds
+  * Drop the global UNIX and POSIX compile definitions
+  * Keep libcrypt and SROUTER_HAVE_CRYPT private to the crypto library
+  * Let --version work without --config
+  * Let --install and --remove work without a config on Windows
+  * Update mlkem-native to v2.0.0
+  * Provide libsession's session::mlkem768 API from session-router
+  * Use mlkem-native's AVX2 code on x86_64 CPUs that support it
+
+ -- Jason Rhinelander <jason@session.foundation>  Thu, 15 Oct 2026 13:37:23 -0300
+
 session-router (1.1.0~rc2-2~ubuntu2604) resolute; urgency=medium
 
   * Build with Woodpecker via .woodpecker/override-deb.star
