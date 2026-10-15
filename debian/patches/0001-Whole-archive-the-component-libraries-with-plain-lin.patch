@@ -1,0 +1,25 @@
+From: Jason Rhinelander <jason@imaginary.ca>
+Date: Thu, 15 Oct 2026 19:11:36 -0300
+Subject: Whole-archive the component libraries with plain linker flags
+
+CMake 3.24 to 3.29 refuse $<LINK_LIBRARY:WHOLE_ARCHIVE,...> here: the
+components also link each other normally, so a component appears both
+whole-archived and plain, which those versions don't allow.  Use the
+-Wl,--whole-archive flags that older CMake already uses instead.
+---
+ src/CMakeLists.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index f4b07d0..cee9d91 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -28,8 +28,6 @@ endfunction()
+ function(srouter_link_whole target)
+   if(NOT BUILD_SHARED_LIBS)
+     target_link_libraries(${target} PRIVATE ${ARGN})
+-  elseif(CMAKE_VERSION VERSION_GREATER_EQUAL 3.24)
+-    target_link_libraries(${target} PRIVATE "$<LINK_LIBRARY:WHOLE_ARCHIVE,${ARGN}>")
+   else()
+     target_link_libraries(${target} PRIVATE -Wl,--whole-archive ${ARGN} -Wl,--no-whole-archive)
+   endif()
