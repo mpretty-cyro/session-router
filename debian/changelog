@@ -1,3 +1,10 @@
+session-router (1.1.0~rc3-2~ubuntu2404) noble; urgency=medium
+
+  * Rename debian/control to debian/control.in
+  * Ship libsessionrouter and libsessionrouter-core as shared library packages
+
+ -- Jason Rhinelander <jason@session.foundation>  Thu, 15 Oct 2026 15:47:01 -0300
+
 session-router (1.1.0~rc3-1~ubuntu2404) noble; urgency=medium
 
   * Count a UDP tunnel mapping only once its socket exists
