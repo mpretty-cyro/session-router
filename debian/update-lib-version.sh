@@ -11,6 +11,6 @@ if ! [ -f debian/changelog ] || ! [ -f debian/control.in ]; then
     fi
 fi
 
-VERSION=$(head -1 debian/changelog | sed -e 's/.*(//; s/[^0-9.].*//')
+VERSION=$(head -1 debian/changelog | sed -e 's/.*(\([0-9]\+\.[0-9]\+\)\..*/\1/')
 
 sed -e "s/@LIB_VERSION@/$VERSION/g" debian/control.in >debian/control
