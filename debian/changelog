@@ -1,3 +1,10 @@
+session-router (1.1.0~rc2-2~ubuntu2404) noble; urgency=medium
+
+  * Build with Woodpecker via .woodpecker/override-deb.star
+  * Rebuild with latest libquic
+
+ -- Jason Rhinelander <jason@session.foundation>  Thu, 15 Oct 2026 13:33:16 -0300
+
 session-router (1.1.0~rc2-1~ubuntu2404) noble; urgency=medium
 
   * require latest libquic
