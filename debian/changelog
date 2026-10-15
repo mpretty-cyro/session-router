@@ -1,3 +1,19 @@
+session-router (1.1.0~rc4-1~ubuntu2604) resolute; urgency=medium
+
+  * Link -cntrl / -config properly
+  * Bumps mlkem-native to latest upstream commit
+  * internal linkage fix
+  * Detect the target with compiler checks instead of TargetArch
+  * Remove the SROUTER_AVX2 option
+  * Build only the ML-KEM copies and assembly that the target uses
+  * Install the public headers and pkg-config files
+  * Version the shared libraries' SONAME by major.minor only
+  * Version the library packages by upstream major.minor
+  * Add a libsessionrouter-dev package
+  * Make library dependents require at least the version they built against
+
+ -- Jason Rhinelander <jason@session.foundation>  Thu, 15 Oct 2026 18:55:05 -0300
+
 session-router (1.1.0~rc3-2~ubuntu2604) resolute; urgency=medium
 
   * Rename debian/control to debian/control.in
