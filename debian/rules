@@ -41,8 +41,8 @@ override_dh_auto_configure:
 		-DSROUTER_TESTS=OFF -DBUILD_SHARED_LIBS=ON -DSROUTER_VERSION_SO=ON \
 		-DSROUTER_NATIVE_BUILD=OFF -DSROUTER_AVX2=OFF -DWITH_SETCAP=OFF
 
-# The libraries' SONAME version (and so their package names) is the upstream x.y.z.
-LIB_VER := $(shell echo '$(DEB_VERSION_UPSTREAM)' | sed -e 's/[^0-9.].*//')
+# The libraries' SONAME version (and so their package names) is the upstream major.minor.
+LIB_VER := $(shell echo '$(DEB_VERSION_UPSTREAM)' | sed -e 's/^\([0-9]\+\.[0-9]\+\).*/\1/')
 
 override_dh_install:
 	dh_install
