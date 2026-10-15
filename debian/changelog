@@ -1,3 +1,10 @@
+session-router (1.1.0~rc3-2~ubuntu2610) stonking; urgency=medium
+
+  * Rename debian/control to debian/control.in
+  * Ship libsessionrouter and libsessionrouter-core as shared library packages
+
+ -- Jason Rhinelander <jason@session.foundation>  Thu, 15 Oct 2026 15:46:58 -0300
+
 session-router (1.1.0~rc3-1~ubuntu2610) stonking; urgency=medium
 
   * Count a UDP tunnel mapping only once its socket exists
