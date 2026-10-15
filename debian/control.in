@@ -29,7 +29,7 @@ Vcs-Browser: https://github.com/session-foundation/session-router
 
 Package: session-router-bin
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, lsb-base, curl
+Depends: libsessionrouter@LIB_VERSION@ (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}, lsb-base, curl
 Description: Session network anonymous, decentralized onion routing network -- binaries
  Session Router is an IP packet onion routing network that powers low-latency,
  anonymous IP routing, as used on the Session messenger network.
@@ -37,6 +37,30 @@ Description: Session network anonymous, decentralized onion routing network -- b
  This package contains the session-router binaries; most users will want to
  install the session-router-client or session-router-relay packages to include
  service files to run Session Router as a system service.
+
+Package: libsessionrouter@LIB_VERSION@
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: libsessionrouter-core@LIB_VERSION@ (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Session network anonymous, decentralized onion routing network -- full library
+ Session Router is an IP packet onion routing network that powers low-latency,
+ anonymous IP routing, as used on the Session messenger network.
+ .
+ This package contains the full Session Router library, with the client and
+ relay support used by the session-router daemon.
+
+Package: libsessionrouter-core@LIB_VERSION@
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Session network anonymous, decentralized onion routing network -- core library
+ Session Router is an IP packet onion routing network that powers low-latency,
+ anonymous IP routing, as used on the Session messenger network.
+ .
+ This package contains the core Session Router library, providing the
+ embedded Session Router API.
 
 Package: session-router-client
 Architecture: all

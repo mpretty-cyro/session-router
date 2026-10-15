@@ -38,11 +38,16 @@ override_dh_auto_configure:
 	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release \
 		-DVERSIONTAG="deb$(DEB_VERSION)" \
 		$(DEB_CMAKE_ARCH_OPTIONS) \
-		-DSROUTER_TESTS=OFF -DBUILD_SHARED_LIBS=OFF \
+		-DSROUTER_TESTS=OFF -DBUILD_SHARED_LIBS=ON -DSROUTER_VERSION_SO=ON \
 		-DSROUTER_NATIVE_BUILD=OFF -DSROUTER_AVX2=OFF -DWITH_SETCAP=OFF
+
+# The libraries' SONAME version (and so their package names) is the upstream x.y.z.
+LIB_VER := $(shell echo '$(DEB_VERSION_UPSTREAM)' | sed -e 's/[^0-9.].*//')
 
 override_dh_install:
 	dh_install
+	dh_install -plibsessionrouter-core$(LIB_VER) usr/lib/*/libsessionrouter-core.so.$(LIB_VER)
+	dh_install -plibsessionrouter$(LIB_VER) usr/lib/*/libsessionrouter.so.$(LIB_VER)
 
 override_dh_installsystemd:
 	dh_installsystemd --name=session-router-client
