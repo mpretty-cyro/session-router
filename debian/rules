@@ -49,6 +49,11 @@ override_dh_install:
 	dh_install -plibsessionrouter-core$(LIB_VER) usr/lib/*/libsessionrouter-core.so.$(LIB_VER)
 	dh_install -plibsessionrouter$(LIB_VER) usr/lib/*/libsessionrouter.so.$(LIB_VER)
 
+# A 1.1.x release can add symbols to the 1.1 ABI, so dependents need at least the version they
+# were built against.
+override_dh_makeshlibs:
+	dh_makeshlibs -V
+
 override_dh_installsystemd:
 	dh_installsystemd --name=session-router-client
 	dh_installsystemd --name=session-router-relay
