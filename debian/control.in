@@ -62,6 +62,18 @@ Description: Session network anonymous, decentralized onion routing network -- c
  This package contains the core Session Router library, providing the
  embedded Session Router API.
 
+Package: libsessionrouter-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libsessionrouter@LIB_VERSION@ (= ${binary:Version}), libsessionrouter-core@LIB_VERSION@ (= ${binary:Version}), ${misc:Depends}
+Description: Session network anonymous, decentralized onion routing network -- development files
+ Session Router is an IP packet onion routing network that powers low-latency,
+ anonymous IP routing, as used on the Session messenger network.
+ .
+ This package contains the headers and other development files needed to
+ build software using the Session Router libraries.
+
 Package: session-router-client
 Architecture: all
 Depends: session-router-bin (=${binary:Version}), adduser, ucf
