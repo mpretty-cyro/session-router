@@ -1,3 +1,9 @@
+session-router (1.1.0-1~deb14) forky; urgency=medium
+
+  * Upload tag builds into a directory named for the tag
+
+ -- Jason Rhinelander <jason@session.foundation>  Thu, 15 Oct 2026 21:10:28 -0300
+
 session-router (1.1.0~rc4-1~deb14) forky; urgency=medium
 
   * Link -cntrl / -config properly
